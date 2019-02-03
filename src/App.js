@@ -6,22 +6,45 @@ import Weather from "./components/Weather"
 const KEY = "6c6e5a128e48a672ba7bc5fd4d02ce36";
 
 class App extends React.Component {
+	constructor() {
+		super();	// workaround
+
+		this.state = {
+			temp: undefined,
+			city: undefined,
+			description: undefined
+		}
+
+		this.getWeatherInfo = this.getWeatherInfo.bind(this);	// workaround
+	}
+
 	async getWeatherInfo (e) {
 
 		// Prevent page refresh on submit
 		e.preventDefault();
 
 		// Store user inputs
-		var city = e.target.elements.City.value;
-		var country = e.target.elements.Country.value;
+		var zip = e.target.elements.Zip.value;
+
+		// Generate url based on inputs
+		var url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=${KEY}`;
+		var info;
 
 		// Make API call
-		var api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${KEY}`);
-
-		// Convert info to readable format
-		var info = api_call.json();
+		await fetch(url).then(function(response) {
+			return response.json();
+		}).then(function(data){
+			// Extract data
+			info = data;
+		})
 
 		console.log(info);
+
+		this.setState({
+			temp: info.main.temp,
+			city: info.name,
+			description: info.weather[0].description
+		})
 	}
 
 	render() {
@@ -29,8 +52,16 @@ class App extends React.Component {
 
 			<div>
 				<Title />
-				<Form getWeatherInfo = {this.getWeatherInfo}/>
-				<Weather />
+
+				<Form 
+					getWeatherInfo = {this.getWeatherInfo}
+				/>
+
+				<Weather 
+					temperature = {this.state.temp}
+					city = {this.state.city}
+					description = {this.state.description}
+				/>
 			</div>
 
 		);
