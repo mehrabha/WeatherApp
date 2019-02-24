@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.wrapper {
+	height: 100vh;
+
+	background: linear-gradient(lightskyblue, skyblue, lightsteelblue);
+	background-position: center center;
+	background-size: cover;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.main {
+	height: 100vh;
+	max-height: 90vh;
+	width: 100vw;
+	max-width: 90vw;
+	box-shadow: 4px 4px 12px 12px rgba(0, 0, 0, .2);
+	margin: auto;
+}
+
+.row {
+	height: 100%;
+	width: 100%;
+
+}
+
+.title-container {
+	background: url('assets/sky.png');
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.form-container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
