@@ -2,11 +2,9 @@
 
 .wrapper {
 	height: 100vh;
-
-	background: linear-gradient(lightskyblue, skyblue, lightsteelblue);
+	background: radial-gradient(circle, #15151e, #666699, #15151e);
 	background-position: center center;
 	background-size: cover;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -14,9 +12,9 @@
 
 .main {
 	height: 100vh;
-	max-height: 90vh;
+	max-height: 80vh;
 	width: 100vw;
-	max-width: 90vw;
+	max-width: 80vw;
 	box-shadow: 4px 4px 12px 12px rgba(0, 0, 0, .2);
 	margin: auto;
 }
@@ -24,19 +22,67 @@
 .row {
 	height: 100%;
 	width: 100%;
-
+	margin: 0;
 }
 
 .title-container {
 	background: url('assets/sky.png');
+	background-position: center center;
+	background-size: cover;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	color: white;
+	font-family: "Open Sans", serif;
+	text-shadow: 2px 2px #333333;
+}
+
+.title-main {
+	font-size: 45px;
+}
+
+.desc-main {
+	font-size: 25px;
+	font-style: italic;
 }
 .form-container {
+	background: linear-gradient(#00131a, #002533, #00131a);
+	background-position: center center;
+	background-size: cover;
 	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	padding: 150px 75px;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  padding: 0 0 5px 2px;
+  margin: 5px;
+  color: rgba(196, 196, 196, 0.58);
+  font-family: "Open Sans", serif;
+  font-size: 20px;
+  outline: none;
+}
+
+button {
+	border: 0;
+	padding: 6px;
+	margin: 7px;
+  	font-family: "Open Sans", serif;
+  	font-size: 20px;
+  	background: rgba(196, 196, 196, 0.85);
+}
+
+.info-main {
+	background-color: transparent;
+	margin: 70px 0px;
+	font-family: "Open Sans", serif;
+	font-size: 20px;
+  	color: rgba(196, 196, 196, 0.85);
+}
+
+.element{
+	margin: 40px 5px;
 }

@@ -11,6 +11,8 @@ class App extends React.Component {
 
 		this.state = {
 			temp: undefined,
+			humidity: undefined,
+			wind: undefined,
 			city: undefined,
 			description: undefined
 		}
@@ -42,6 +44,8 @@ class App extends React.Component {
 
 		this.setState({
 			temp: info.main.temp,
+			humidity: info.main.humidity,
+			wind: info.wind.speed,
 			city: info.name,
 			description: info.weather[0].description
 		})
@@ -63,6 +67,8 @@ class App extends React.Component {
 						/>
 						<Weather 
 							temperature = {this.state.temp}
+							humidity = {this.state.humidity}
+							wind = {this.state.wind}
 							city = {this.state.city}
 							description = {this.state.description}
 						/>
