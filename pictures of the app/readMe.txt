@@ -1,0 +1,1 @@
+Please download and view pictures if there are scaling issues in the browser.
