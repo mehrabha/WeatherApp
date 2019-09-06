@@ -54,8 +54,9 @@ class App extends React.Component {
 	render() {
 	    var http = require("http");
 	    setInterval(function() {
-	        http.get("http://https://weather-checker-react.herokuapp.com/");
-	    }, 600000); // every 5 minutes (600000)
+	        http.get("https://weather-checker-react.herokuapp.com/");
+		http.get("https://mockup-frontend-capstone.herokuapp.com/");
+	    }, 600000);
 		return (
 
 			<div>
