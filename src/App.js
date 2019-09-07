@@ -7,8 +7,7 @@ const KEY = "6c6e5a128e48a672ba7bc5fd4d02ce36";
 
 class App extends React.Component {
 	constructor() {
-		super();	// workaround
-		makePings();
+		super();
 		this.state = {
 			temp: undefined,
 			humidity: undefined,
@@ -18,14 +17,6 @@ class App extends React.Component {
 		}
 
 		this.getWeatherInfo = this.getWeatherInfo.bind(this);	// workaround
-	}
-
-	makePings() {
-	    setInterval(function() {
-	        fetch("https://weather-checker-react.herokuapp.com/");
-		fetch("https://mockup-frontend-capstone.herokuapp.com/");
-		fetch("https://campusmanager-frontend.herokuapp.com/");
-	    }, 600000);
 	}
 
 	async getWeatherInfo (e) {
