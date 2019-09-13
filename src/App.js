@@ -19,6 +19,32 @@ class App extends React.Component {
 		this.getWeatherInfo = this.getWeatherInfo.bind(this);	// workaround
 	}
 
+	componentDidMount() {
+		this.makePings();
+	}
+
+	// Used to keep heroku apps awake, doesnt impact project functionality
+	makePings() {
+		var https = require("https");
+		let weatherapp = {
+			host: "mockup-frontend-capstone.herokuapp.com",
+			port: 3000,
+			path: '/'
+		};
+		let campusapp = {
+			host: "weather-checker-react.herokuapp.com",
+			port: 3000,
+			path: '/'
+		}
+		
+		https.get(weatherapp);
+		https.get(campusapp);
+		setInterval(function() {
+			https.get(weatherapp);
+			https.get(campusapp);
+		}, 10 * 60 * 1000);
+	}
+
 	async getWeatherInfo (e) {
 
 		// Prevent page refresh on submit
